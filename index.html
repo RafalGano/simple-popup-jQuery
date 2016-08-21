@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>popup</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <style type="text/css">
+    body{
+      font-family: 'Open Sans', sans-serif;
+      text-transform: uppercase;
+    }
+    #block{
+      margin: 0 auto;
+      max-width: 300px;
+    }
+
+    .special{
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #ddd;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+
+    .special .red-alert {
+      display: block;
+      width: 300px;
+      height: 100px;
+      position: absolute;
+      top: -123px;
+      left: -129px;
+      background-color: #e25343;
+      border-radius: 5px;
+      line-height: 6;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .special img{
+      position: absolute;
+      top: -23px;
+      left: 20px;
+    }
+
+    .conteiner{
+      max-width: 500px;
+      padding-top: 50%;
+    }
+
+    p{
+      font-size: 10px;
+      text-align: center;
+      padding-top: 12px;
+    }
+
+  </style>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+  <div id="block">
+     <div class="conteiner">
+       <div class="special">
+          <p>touch<br>me!</p>
+         <div class="red-alert">shows when you popup 1</div>
+         <img src="red-alert-2.png"/>
+       </div>
+     </div>
+
+     <div class="conteiner">
+        <div class="special">
+          <p>touch<br>me!</p>
+          <div class="red-alert">shows when you popup 2</div>
+          <img src="red-alert-2.png"/>
+        </div>
+     </div>
+
+     <div class="conteiner">
+        <div class="special">
+          <p>touch<br>me!</p>
+          <div class="red-alert">shows when you popup 3</div>
+          <img src="red-alert-2.png"/>
+        </div>
+     </div>
+  </div>
+
+
+<script>
+
+   $(function(){
+     $('.special .red-alert').hide();
+     $('.special img').hide();
+     $('.special').mouseover(function(){
+         $(this).children('.red-alert').toggle();
+     });
+     $('.special').mouseover(function(){
+         $(this).children('img').toggle();
+     });
+     $('.special').mouseout(function(){
+         $(this).children('.red-alert').hide();
+     });
+     $('.special').mouseout(function(){
+         $(this).children('img').hide();
+     });
+   });
+
+</script>
+
+</body>
+</html>
