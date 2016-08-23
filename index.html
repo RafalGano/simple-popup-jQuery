@@ -36,12 +36,124 @@
       line-height: 6;
       text-align: center;
       color: #ffffff;
+      -webkit-animation: in 500ms ease-in-out forwards;
+      animation: in 500ms ease-in-out forwards;
     }
 
-    .special img{
+    .red-alert:after {
+      top: 100%;
+      left: 155px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
       position: absolute;
-      top: -23px;
-      left: 20px;
+      pointer-events: none;
+      border-color: rgba(0, 151, 167, 0);
+      border-top-color: #e25343;
+      border-width: 16px;
+      margin-left: -16px;
+    }
+
+    @keyframes in {
+      0%{
+        opacity: 0;
+        transform: scale(0.1) rotate(40deg);
+      }
+      100%{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .red-alert-2{
+      display: block;
+      width: 300px;
+      height: 100px;
+      position: absolute;
+      top: -123px;
+      left: -129px;
+      background-color: #e25343;
+      border-radius: 5px;
+      line-height: 6;
+      text-align: center;
+      color: #ffffff;
+      -webkit-animation: in-2 500ms ease-in-out forwards;
+      animation: in-2 500ms ease-in-out forwards;
+    }
+
+    .red-alert-2:after {
+      top: 100%;
+      left: 155px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(0, 151, 167, 0);
+      border-top-color: #e25343;
+      border-width: 16px;
+      margin-left: -16px;
+    }
+
+    @keyframes in-2 {
+      0%{
+        opacity: 0;
+        transform: scale(0.1) rotate(40deg);
+      }
+      50%{
+        transform: rotate(-10deg);
+      }
+      70%{
+        transform: rotate(3deg);
+      }
+      100%{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .red-alert-3{
+      display: block;
+      width: 300px;
+      height: 100px;
+      position: absolute;
+      top: -123px;
+      left: -129px;
+      background-color: #e25343;
+      border-radius: 5px;
+      line-height: 6;
+      text-align: center;
+      color: #ffffff;
+      -webkit-animation: in-3 500ms ease-in-out forwards;
+      animation: in-3 500ms ease-in-out forwards;
+    }
+
+    .red-alert-3:after {
+      top: 100%;
+      left: 155px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(0, 151, 167, 0);
+      border-top-color: #e25343;
+      border-width: 16px;
+      margin-left: -16px;
+    }
+
+    @keyframes in-3 {
+      0%{
+        opacity: 0;
+        transform: scale(0.1);
+      }
+      100%{
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     .conteiner{
@@ -65,24 +177,22 @@
      <div class="conteiner">
        <div class="special">
           <p>touch<br>me!</p>
-         <div class="red-alert">shows when you popup 1</div>
-         <img src="red-alert-2.png"/>
+         <div class="red-alert in">shows when you popup 1
+         </div>
        </div>
      </div>
 
      <div class="conteiner">
         <div class="special">
           <p>touch<br>me!</p>
-          <div class="red-alert">shows when you popup 2</div>
-          <img src="red-alert-2.png"/>
+          <div class="red-alert-2 in-2">shows when you popup 2</div>
         </div>
      </div>
 
      <div class="conteiner">
         <div class="special">
           <p>touch<br>me!</p>
-          <div class="red-alert">shows when you popup 3</div>
-          <img src="red-alert-2.png"/>
+          <div class="red-alert-3 in-3">shows when you popup 3</div>
         </div>
      </div>
   </div>
@@ -92,18 +202,21 @@
 
    $(function(){
      $('.special .red-alert').hide();
+     $('.special .red-alert-2').hide();
+     $('.special .red-alert-3').hide();
      $('.special img').hide();
      $('.special').mouseover(function(){
          $(this).children('.red-alert').toggle();
+         $(this).children('.red-alert-2').toggle();
+         $(this).children('.red-alert-3').toggle();
      });
      $('.special').mouseover(function(){
          $(this).children('img').toggle();
      });
      $('.special').mouseout(function(){
          $(this).children('.red-alert').hide();
-     });
-     $('.special').mouseout(function(){
-         $(this).children('img').hide();
+         $(this).children('.red-alert-2').hide();
+         $(this).children('.red-alert-3').hide();
      });
    });
 
